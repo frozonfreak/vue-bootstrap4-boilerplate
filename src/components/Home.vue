@@ -1,5 +1,77 @@
 <template>
-  <el-row class="container">
+  <div>
+    <header class="bg-dark">
+      <div class="container">
+        <nav class="navbar navbar-expand-md no-gutters">
+          <div class="col-3 text-left">
+            <span> {{sysName}} </span>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-4" aria-controls="navbarNav7" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse navbar-collapse-4 justify-content-center col-md-6" id="navbarNav7">
+            <ul class="navbar-nav justify-content-center">
+              <li class="nav-item active">
+                <a class="nav-link" href="https://www.froala.com">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-collapse-4">
+            <ul class="navbar-nav ml-auto justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Log In</a>
+              </li>
+            </ul>
+
+            <a class="btn ml-md-3" href="https://www.froala.com">Register</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <footer class="fdb-block footer-small bg-dark">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-8">
+            <ul class="nav justify-content-center justify-content-md-start">
+              <li class="nav-item">
+                <a class="nav-link active" href="https://www.froala.com">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">Terms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.froala.com">About</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-right">
+            &copy; 2017 {{sysName}}. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- <el-row class="container">
     <el-col :span="24" class="header">
       <el-col :span="10" class="logo" :class="collapsed?'logo-collapse-width':'logo-width'">
         {{collapsed?'':sysName}}
@@ -20,9 +92,9 @@
         </el-dropdown>
       </el-col>
     </el-col>
+
     <el-col :span="24" class="main">
       <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
-        <!--Navigation Menu-->
         <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" @select="handleselect"
            unique-opened router v-show="!collapsed">
           <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
@@ -33,7 +105,7 @@
             <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i :class="item.iconCls"></i>{{item.children[0].name}}</el-menu-item>
           </template>
         </el-menu>
-        <!--Navigation menu after folding-->
+        
         <ul class="el-menu el-menu-vertical-demo collapsed" v-show="collapsed" ref="menuCollapsed">
           <li v-for="(item,index) in $router.options.routes" v-if="!item.hidden" class="el-submenu item">
             <template v-if="!item.leaf">
@@ -68,7 +140,7 @@
         </div>
       </section>
     </el-col>
-  </el-row>
+  </el-row> -->
 </template>
 
 <script>
@@ -127,3 +199,10 @@
     }
 }
 </script>
+<style scoped>
+footer {
+  position: absolute;
+  bottom: 0;
+  width:100%;
+}
+</style>
