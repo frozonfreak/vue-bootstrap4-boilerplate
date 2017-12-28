@@ -43,6 +43,10 @@
         </nav>
       </div>
     </header>
+    
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
 
     <footer class="fdb-block footer-small bg-dark">
       <div class="container">
@@ -63,7 +67,6 @@
               </li>
             </ul>
           </div>
-
           <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-right">
             &copy; 2017 {{sysName}}. All Rights Reserved
           </div>
