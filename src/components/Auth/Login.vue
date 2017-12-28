@@ -4,33 +4,31 @@
       <div class="container">
         <div class="row justify-content-end">
           <div class="col-12 col-md-8 col-lg-6 col-xl-5 text-left">
-            <form>
-              <div class="fdb-box">
-                <div class="row">
-                  <div class="col">
-                    <h1>Log In</h1>
-                    <p class="text-h3">Right at the coast of the Semantics, a large language ocean. A small river named Duden.</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col mt-4">
-                    <input type="text" class="form-control" placeholder="Email" v-model="ruleForm2.account">
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col">
-                    <input type="password" class="form-control" placeholder="Password" v-model="ruleForm2.checkPass">
-                    <p class="text-right"><router-link :to="{ name: 'Register' }" class="align-right">New User?</router-link></p>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col">
-                    <b-button variant="primary" class="btn" type="button"  @click="handleSubmit">Submit</b-button>
-                    <b-button variant="primary" class="btn" type="button" @click="handleReset">Reset</b-button>
-                  </div>
+            <div class="fdb-box">
+              <div class="row">
+                <div class="col">
+                  <h1>Log In</h1>
+                  <p class="text-h3">Right at the coast of the Semantics, a large language ocean. A small river named Duden.</p>
                 </div>
               </div>
-            </form>
+              <div class="row">
+                <div class="col mt-4">
+                  <input type="text" class="form-control" placeholder="Email" v-model="ruleForm2.account">
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col">
+                  <input type="password" class="form-control" placeholder="Password" v-model="ruleForm2.checkPass">
+                  <p class="text-right"><router-link :to="{ name: 'Register' }" class="align-right">New User?</router-link></p>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col">
+                  <b-button variant="primary" class="btn" type="button"  @click="handleSubmit">Submit</b-button>
+                  <b-button variant="primary" class="btn" type="button" @click="handleReset">Reset</b-button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
