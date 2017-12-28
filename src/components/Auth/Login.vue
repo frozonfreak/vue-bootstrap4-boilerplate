@@ -20,6 +20,7 @@
                 <div class="row mt-4">
                   <div class="col">
                     <input type="password" class="form-control" placeholder="Password" v-model="ruleForm2.checkPass">
+                    <p class="text-right"><router-link :to="{ name: 'Register' }" class="align-right">New User?</router-link></p>
                   </div>
                 </div>
                 <div class="row mt-4">
