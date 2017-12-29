@@ -32,13 +32,19 @@
           </div>
 
           <div class="collapse navbar-collapse navbar-collapse-4">
-            <span class="rounded-circle">
-                <b-img src="sysUserAvatar" rounded="circle" blank width="30" height="30" blank-color="#777" alt="img" class="m-1"/>{{sysUserName}}</span>
-            <ul class="navbar-nav ml-auto justify-content-end">
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">Log In</a>
-              </li>
-            </ul>
+            <b-navbar-nav class="ml-auto">
+              <b-nav-item-dropdown right>
+                <!-- Using button-content slot -->
+                <template slot="button-content">
+                  <span class="rounded-circle">
+                    <b-img src="sysUserAvatar" rounded="circle" blank width="30" height="30" blank-color="#777" alt="img" class="m-1"/>{{sysUserName}}
+                  </span>
+                </template>
+                <b-dropdown-item href="#">My Message</b-dropdown-item>
+                <b-dropdown-item href="#">Settings</b-dropdown-item>
+              </b-nav-item-dropdown>
+              <b-nav-item @click="logout">Logout</b-nav-item>
+            </b-navbar-nav>
           </div>
         </nav>
       </div>
@@ -62,16 +68,7 @@
           <div class="col-12 col-md-8">
             <ul class="nav justify-content-center justify-content-md-start">
               <li class="nav-item">
-                <a class="nav-link active" href="https://www.froala.com">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">Terms</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">About</a>
+                <a class="nav-link active" href="#">Home</a>
               </li>
             </ul>
           </div>
@@ -185,13 +182,8 @@
       handleselect: function (a, b) {
       },
       logout: function () {
-        var _this = this
-        this.$confirm('Confirm Exit?', 'Prompt', {
-        }).then(() => {
-          sessionStorage.removeItem('user')
-          _this.$router.push('/login')
-        }).catch(() => {
-        })
+        sessionStorage.removeItem('user')
+        this.$router.push('/login')
       },
       showMenu (i, status) {
         this.$refs.menuCollapsed.getElementsByClassName('submenu-hook-' + i)[0].style.display = status ? 'block' : 'none'
