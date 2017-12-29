@@ -32,21 +32,29 @@
           </div>
 
           <div class="collapse navbar-collapse navbar-collapse-4">
+            <span class="rounded-circle">
+                <b-img src="sysUserAvatar" rounded="circle" blank width="30" height="30" blank-color="#777" alt="img" class="m-1"/>{{sysUserName}}</span>
             <ul class="navbar-nav ml-auto justify-content-end">
               <li class="nav-item">
                 <a class="nav-link" href="https://www.froala.com">Log In</a>
               </li>
             </ul>
-
-            <a class="btn ml-md-3" href="https://www.froala.com">Register</a>
           </div>
         </nav>
       </div>
     </header>
     
-    <transition name="fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
+    <section class="fdb-block">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col col-md-8 text-center">
+            <transition name="fade" mode="out-in">
+              <router-view></router-view>
+            </transition>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer class="fdb-block footer-small bg-dark">
       <div class="container">
@@ -184,9 +192,6 @@
           _this.$router.push('/login')
         }).catch(() => {
         })
-      },
-      collapse: function () {
-        this.collapsed = !this.collapsed
       },
       showMenu (i, status) {
         this.$refs.menuCollapsed.getElementsByClassName('submenu-hook-' + i)[0].style.display = status ? 'block' : 'none'
