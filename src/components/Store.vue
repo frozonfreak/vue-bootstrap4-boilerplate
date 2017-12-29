@@ -1,15 +1,11 @@
 const Store = () => Promise.resolve({ 
 	<template>
-	  <el-row :gutter="10">
-	  	<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-	  		<div class="foo">
-	  			<h1>vuex Test</h1>
-	  			Clicked: {{ getCount }} times
-	  			<el-button type="primary" @click="increment">+</el-button>
-	  			<el-button type="primary" @click="decrement">-</el-button>
-	  		</div>
-	  	</el-col>
-	  </el-row>
+		<div class="foo">
+			<h1>vuex Test</h1>
+			Clicked: {{ getCount }} times
+			<b-btn variant="info" class="m-1" @click="increment">+</b-btn>
+			<b-btn variant="info" class="m-1" @click="decrement">-</b-btn>
+		</div>
 	</template>
 
 	<script>
