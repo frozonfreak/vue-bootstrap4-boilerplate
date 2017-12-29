@@ -1,12 +1,96 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <el-button type="primary" @click="openAutoCloseNotification">Auto Close Notification</el-button>
-    <el-button type="primary" @click="openNotification">Notification</el-button>
-    <el-button type="primary" @click="openSuccess">Success</el-button>
-    <el-button type="primary" @click="openWarning">Warning</el-button>
-    <el-button type="primary" @click="openInfo">Info</el-button>
-    <el-button type="primary" @click="openError">Error</el-button>
+    <b-alert :show="dismissCountDown"
+             dismissible
+             variant="warning"
+             @dismissed="dismissCountdown=0"
+             @dismiss-count-down="countDownChanged">
+      This alert will dismiss after {{dismissCountDown}} seconds...
+    </b-alert>
+    <b-alert variant="primary"
+             dismissible
+             :show="showPrimaryDismissibleAlert"
+             @dismissed="showPrimaryDismissibleAlert=false">
+      Primary Alert!
+    </b-alert>
+    
+    <b-alert variant="secondary"
+             dismissible
+             :show="showSecondaryDismissibleAlert"
+             @dismissed="showSecondaryDismissibleAlert=false">
+      Secondary Alert!
+    </b-alert>
+
+    <b-alert variant="success"
+             dismissible
+             :show="showSuccessDismissibleAlert"
+             @dismissed="showSuccessDismissibleAlert=false">
+      Success Alert!
+    </b-alert>
+
+    <b-alert variant="danger"
+             dismissible
+             :show="showDangerDismissibleAlert"
+             @dismissed="showDangerDismissibleAlert=false">
+      Danger Alert!
+    </b-alert>
+
+    <b-alert variant="warning"
+             dismissible
+             :show="showWarningDismissibleAlert"
+             @dismissed="showWarningDismissibleAlert=false">
+      Warning Alert!
+    </b-alert>
+  
+    <b-alert variant="info"
+             dismissible
+             :show="showInfoDismissibleAlert"
+             @dismissed="showInfoDismissibleAlert=false">
+      Info Alert!
+    </b-alert>
+
+    <b-alert variant="light"
+             dismissible
+             :show="showLightDismissibleAlert"
+             @dismissed="showLightDismissibleAlert=false">
+      Light Alert!
+    </b-alert>
+
+    <b-alert variant="dark"
+             dismissible
+             :show="showDarkDismissibleAlert"
+             @dismissed="showDarkDismissibleAlert=false">
+      Dark Alert!
+    </b-alert>
+
+    <b-btn @click="showAlert" variant="info" class="m-1">
+      Auto Close Notification
+    </b-btn>
+    <b-btn @click="showPrimaryDismissibleAlert=true" variant="info" class="m-1">
+      Primary
+    </b-btn>
+    <b-btn @click="showSecondaryDismissibleAlert=true" variant="info" class="m-1">
+      Secondary
+    </b-btn>
+    <b-btn @click="showSuccessDismissibleAlert=true" variant="info" class="m-1">
+      Success
+    </b-btn>
+    <b-btn @click="showDangerDismissibleAlert=true" variant="info" class="m-1">
+      Danger
+    </b-btn>
+    <b-btn @click="showWarningDismissibleAlert=true" variant="info" class="m-1">
+      Warning
+    </b-btn>
+    <b-btn @click="showInfoDismissibleAlert=true" variant="info" class="m-1">
+      Info
+    </b-btn>
+    <b-btn @click="showLightDismissibleAlert=true" variant="info" class="m-1">
+      Light
+    </b-btn>
+    <b-btn @click="showDarkDismissibleAlert=true" variant="info" class="m-1">
+      Dark
+    </b-btn>
   </div>
 </template>
 
@@ -15,66 +99,26 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showPrimaryDismissibleAlert: false,
+      showSecondaryDismissibleAlert: false,
+      showSuccessDismissibleAlert: false,
+      showDangerDismissibleAlert: false,
+      showWarningDismissibleAlert: false,
+      showInfoDismissibleAlert: false,
+      showLightDismissibleAlert: false,
+      showDarkDismissibleAlert: false
     }
   },
   methods: {
-    openNotification () {
-      this.$notify({
-        title: 'Prompt',
-        message: 'This is a message that does not automatically close',
-        duration: 0
-      })
+    countDownChanged (dismissCountDown) {
+      this.dismissCountDown = dismissCountDown
     },
-    openAutoCloseNotification () {
-      const h = this.$createElement
-
-      this.$notify({
-        title: 'Title',
-        message: h('i', { style: 'color: teal' }, 'This is a reminder')
-      })
-    },
-    openSuccess () {
-      const h = this.$createElement
-
-      this.$notify({
-        title: 'Title',
-        message: h('i', { style: 'color: teal' }, 'This is a reminder'),
-        type: 'success'
-      })
-    },
-    openWarning () {
-      const h = this.$createElement
-
-      this.$notify({
-        title: 'Title',
-        message: h('i', { style: 'color: teal' }, 'This is a reminder'),
-        type: 'warning'
-      })
-    },
-    openInfo () {
-      const h = this.$createElement
-
-      this.$notify.info({
-        title: 'Title',
-        message: h('i', { style: 'color: teal' }, 'This is a reminder')
-      })
-    },
-    openError () {
-      const h = this.$createElement
-
-      this.$notify.error({
-        title: 'Title',
-        message: h('i', { style: 'color: teal' }, 'This is a reminder')
-      })
+    showAlert () {
+      this.dismissCountDown = this.dismissSecs
     }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1{
-  font-weight: normal;
-}
-</style>
